@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int Knapsack(int* wt, int* val, int W, int n)
+int UKnapsack(int wt[], int val[], int W, int n)
 {
     int t[n+1][W+1];
 
@@ -17,10 +17,9 @@ int Knapsack(int* wt, int* val, int W, int n)
             {
                 if(wt[i-1]<=j)
                 {
-                    t[i][j] = max( val[i-1]+ t[i-1][j-wt[i-1]], t[i-1][j]);
+                    t[i][j] = max(val[i-1]+t[i][j-wt[i-1]],t[i-1][j]);
                 }
-
-                else if(wt[i-1]>j)
+                else
                 {
                     t[i][j] = t[i-1][j];
                 }
@@ -35,9 +34,9 @@ int Knapsack(int* wt, int* val, int W, int n)
         }
         cout<<endl;
     }
+
     return t[n][W];
 }
-
 
 int main()
 {
@@ -46,13 +45,12 @@ int main()
     int W = 7;
     int n = sizeof(wt)/sizeof(wt[0]);
 
-    int MaxProfit = Knapsack(wt,val,W,n);
+    int MaxProfit = UKnapsack(wt,val,W,n);
     cout<<MaxProfit; 
 }
 
 // t matrix
 // 0  0  0  0  0  0  0  0  
-// 0  1  1  1  1  1  1  1
-// 0  1  1  4  5  5  5  5
-// 0  1  1  4  5  6  6  9
-// Here all for all possible values of n and W, max profit is calculated, even when that value is not needed(in recursive code) in calculation of final value(n=3 and W=7)
+// 0  1  2  3  4  5  6  7
+// 0  1  2  4  5  6  8  9
+// 0  1  2  4  5  6  8  9

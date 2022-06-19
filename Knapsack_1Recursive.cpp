@@ -46,11 +46,14 @@ int Knapsack(int wt[], int val[], int W, int n)
 
 int main()
 {
-    int wt[] = {1,3,4};
-    int val[] = {1,4,5};
+    // int wt[] = {1,3,4};
+    // int val[] = {1,4,5};
+    int wt[] = {1,3,4,5};
+    int val[] = {1,1,2,10};
     int W = 7;
     int n = sizeof(wt)/sizeof(wt[0]);
     int MaxProfit;
+    
     MaxProfit = Knapsack(wt,val,W,n);
     cout<<MaxProfit;
 }

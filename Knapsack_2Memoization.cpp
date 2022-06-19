@@ -2,7 +2,7 @@
 #include<algorithm>
 using namespace std;
 
-int t[4][8];
+int t[10][10];
 
 int knapsack(int* wt, int * val, int W, int n)
 {
@@ -34,7 +34,7 @@ int knapsack(int* wt, int * val, int W, int n)
 
 int main()
 {
-    fill(*t,*t+ 4*8, -1);
+    fill(*t,*t+ 10*10, -1);
     int wt[] = {1,3,4};
     int val[] = {1,4,5};
     int W = 7;
