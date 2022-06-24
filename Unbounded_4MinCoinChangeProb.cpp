@@ -55,10 +55,9 @@ int UKnapsack(int coin[], int sum, int n)
 
 int main()
 {
-    int coin[] = {3,4,1};
-    int sum = 5;
+    int coin[] = {1,2,3};
+    int sum = 8;
     int n= sizeof(coin)/sizeof(coin[0]);
     int mincoins = UKnapsack(coin, sum , n);
     cout<<"min coins are "<<mincoins<<endl;
-
 }
